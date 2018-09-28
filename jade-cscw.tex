@@ -16,20 +16,11 @@
 % \usepackage{paralist}
 % \usepackage[utf8]{inputenc} % for a UTF8 editor only
 
-%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
-% \copyrightinfo{Permission to make digital or hard copies of all or
-% part of this work for personal or classroom use is granted without
-% fee provided that copies are not made or distributed for profit or
-% commercial advantage and that copies bear this notice and the full
-% citation on the first page. Copyrights for components of this work
-% owned by others than ACM must be honored. Abstracting with credit is
-% permitted. To copy otherwise, or republish, to post on servers or to
-% redistribute to lists, requires prior specific permission and/or a
-% fee. Request permissions from permissions@acm.org.\\
-% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
-% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
-% DOI string from ACM form confirmation}
-%% EXAMPLE END
+\copyrightinfo{This article is licensed under the Creative Commons \\
+Attribution 4.0 International license (CC BY 4.0). You are free to share\\
+and adapt this work, provided you attribute the authors and leave this \\ copyright notice intact.
+ {\emph{CSCW'18}}, November 3-7, 2018, Jersey City, NJ, USA. \\
+ https://doi.org/XXXXX/XXXXX}
 
 % Paper metadata (use plain text, for PDF inclusion and later
 % re-using, if desired).  Use \emtpyauthor when submitting for review
@@ -88,15 +79,15 @@
 
 \maketitle
 
-% Uncomment to disable hyphenation (not recommended)
+% Comment to disable hyphenation (not recommended)
 % https://twitter.com/anjirokhan/status/546046683331973120
-\RaggedRight{} 
+\RaggedRight{}
 
 % Do not change the page size or page settings.
 \begin{abstract}
 We introduce a system for rich feedback in Wikipedia, called Judgment and Dialogue Engine (JADE).  Expanding on current auditing approaches, JADE adds a dimension of human communication and collaborative decision-making between the auditors.
 
-This rich feedback is currently targeted at the machine learning models running on Wikipedia, which will benefit through the exploration and mitigation of its unseen biases.  JADE will provide a way to make our algorithms accountable to the wiki users.
+This rich feedback is currently targeted at the machine learning models running on Wikipedia, which will benefit through the exploration and mitigation of its unseen biases.  JADE will provide a way to make our algorithms accountable to the wiki users.  Built on top of the collaborative practice and culture of Wikipedia, we anticipate that group judgments will offer a high-quality source of auditing data which will counteract vicious cycles reinforcing the status quo.
 
 In the longer-term, our hope is that JADE will demonstrate a new technique to improve AI fairness and performance in general, and may help establish transparent and collaborative auditing as an urgent intervention that we should insist upon in the public interest.
 
@@ -114,19 +105,19 @@ Interestingly, this subjective feedback is an important data stream for evaluati
 
 Wikipedia is an exceptional context, however, and one in which we already know that empowering users leads to a virtuous cycle of increasing quality and capacity.  Giving the users more powerful tools to collaboratively critique articles will likely bring about better articles, and will strengthen the reader-to-leader pipeline~\cite{preece2009reader} in which users grow roots in their community, moving beyond individual efforts to form tightly connected groups who work together.
 
-The central Wiki artifacts are "article" content about a subject and "talk" pages where the content is discussed.  Routine anti-vandalism work involves making judgments about edits to the wiki content, and either marking the changes as safe or "patrolled", or rolling back or "reverting" the bad edits.  Our goal is to enrich this type of activity, with new article and talk pages that contain collaborative reflection about the edits.  For example, an edit that introduces an obviously paid, promotional link which is irrelevant to an article could be marked "damaging" and "spam", and the reviewer might add a note explaining their suspicions that a large PR firm has been encouraging vandalism in this topic area.  Another reviewer could come along later and disagree, noting that the link is in fact helpful and giving their own justification.
+The main cultural productions on a wiki are "article" content about a subject and "talk" pages where the content is discussed.  Routine anti-vandalism work involves making judgments about edits to the wiki content, and either marking the changes as "patrolled" (safe, constructive), or "reverting" the bad edits, removing them from content.  Our initial goal is to enrich this type of activity, with new article and talk pages that contain collaborative reflection about the edits.  For example, an edit that introduces an obviously paid, promotional link which is irrelevant to an article could be marked "damaging" and "spam", and the reviewer might add a note explaining their suspicions that a large PR firm has been encouraging vandalism in this topic area.  Another reviewer could come along later and disagree, noting that the link is in fact helpful and giving their own justification.
 
 We expect this type of exchange to be generative, and for the communities to exhibit emergent properties far beyond anything we've imagined.  As the community evolves, we will try to adapt the software to better suit their needs.
 
 \section{Rich Feedback}
 
-One of the initial motivations for JADE was to allow users to make false positive reports against the "objective revision evaluation service" (ORES), a container for machine learning modes running on Wikipedia data.  This could have been done with something as basic as a "right/wrong" button.  However, there are multiple benefits when collecting richer feedback.  The feedback process itself can lead to better user understanding of and trust in our machine learning models.  Simply asking for a freeform text note along with feedback leads to higher data quality.  At the far extreme of rich feedback, the users can actually modify the model in real-time and examine the impact of their changes.\cite{amershi2014power} \cite{stumpf2009interacting}  On the machine side, we can provide rich explanations of why the algorithm made a given prediction, even breaking out the factors involved and allowing the user to annotate the factors directly.
+One of the initial motivations for JADE was to allow users to make false positive reports against the "objective revision evaluation service" (ORES), a container for machine learning modes running on Wikipedia data.  A false positive in this case would be a prediction from ORES saying that an edit is vandalism, when in fact it isn't.  These reports could be submitted with something as basic as a "right/wrong" button.  However, there are multiple benefits when collecting richer feedback.  The feedback process itself can lead to better user understanding of and trust in our machine learning models.  Simply asking for a freeform text note along with feedback leads to higher data quality.  At the far extreme of rich feedback, the users can actually modify the model in real-time and examine the impact of their changes.\cite{amershi2014power} \cite{stumpf2009interacting}  On the machine side, we can provide rich explanations of why the algorithm made a given prediction, even breaking out the factors involved and allowing the user to annotate the factors directly.
 
-Due to time and resource constraints, we've chosen elements of rich feedback which are easier in Wikipedia such as freeform text and discussion, and are not pursuing the more programatically-heavy elements such as real-time manipulation of our models.
+We've decided to collect types of rich feedback already present on Wikipedia, freeform text and discussion, since the cultural practices and software already exist to support this.  Other elements of rich feedback such as real-time, interactive manipulation of models will have to wait for a later iteration of JADE.
 
 \section{Collaborative Auditing}
 
-Another motivation for JADE is to help mitigate biases in ORES.  To illustrate our nightmare scenario, it's possible that Wikipedia editors would blindly follow ORES predictions and revert any new material that scored higher than say 50\%.  The ORES scoring would have been informed by previous editors' decisions, and the additional reverting caused by following ORES would reinforce whatever biases were present in the original training data.  The next time we gathered data and trained ORES, the editor status quo would be even more deeply encoded into our models and they would become less tolerant of material at the margins.  Already Anglo-Euro-centric norms and interests would become even more so.
+Another motivation for JADE is to help mitigate biases in ORES machine learning models.  To illustrate our nightmare scenario, it's possible that Wikipedia editors would blindly follow ORES predictions and revert any new material was flagged as potential vandalism.  The actions of editors following ORES would reinforce whatever biases were present in the original training data.  The next time we gathered data and trained ORES, the editor status quo would be even more deeply encoded into our models and they would become less tolerant of material at the margins.  Already Anglo-Euro-centric norms\cite{ford2013getting} would become even more so.
 
 The promise of JADE is that editors can discuss the borderline and outlier cases, and help system designers identify the shortcomings in ORES.  Ideally, in the future it might become possible for the editors to directly iterate our machine learning models without any mediation by technicians.
 
@@ -136,17 +127,17 @@ By making a public audit of our algorithms' output, external researchers are abl
 
 A crucial detail of our system is that the judgments will be collaborative.  This is more than just an aggregation of individual opinions.  Some research shows that a group judgment involving discussion is likely to be more accurate, can better estimate extreme values, and has a more realistic confidence level than any other method of aggregation.\cite{sniezek1989accuracy}
 
-Heterogenous groups which disagree on their opinions seem to produce more accurate results, suggesting that our massive, public collaboration mechanism will be more successful than any controlled, small group.\cite{schulz2006group}
+Heterogenous groups which disagree on their opinions seem to produce more accurate results, suggesting that a massive, public collaboration mechanism will be more successful than any small group of selected experts, for example.\cite{schulz2006group}
 
 \section{Challenging Power}
 
-The reasons to audit powerful algorithms range from the unfair effects on individuals, to the meso-level health of each algorithm and its ability to deliver on its own narrowly defined goals, to the health and survival of our society as a whole.  Many routes to auditing are tightly closed off by economic and legal forces.  For example, Sandvig points out that the U.S. Computer Fraud and Abuse Act makes some of the most effective research methods illegal, and people have actually been prosecuted and imprisoned under this law.  Companies protect the internals of their algorithms as some of their most valuable intellectual property, for example Google's much-speculated PageRank, and it's inconceivable that they will voluntarily offer any transparency.
+The reasons to audit powerful algorithms range from the unfair effects on individuals, to the meso-level health of each algorithm and its ability to deliver on its own narrowly defined goals, to the health and survival of our society as a whole, to the degree that our social cohesion is now determined by technical algorithms.  Many routes to auditing are tightly closed off by legal and economic forces.  For example, Sandvig (2014) points out that the U.S. Computer Fraud and Abuse Act makes some of the most effective research methods illegal, and people have actually been prosecuted and imprisoned under this law.  Companies protect the internals of their algorithms as some of their most valuable intellectual property, for example Google's much-speculated-about PageRank, and it's inconceivable that they will voluntarily offer any transparency.
 
 As Frederick Douglass said in 1857, "Power concedes nothing without a demand."  JADE hints at one potential weakness in the structure of the new algorithmic power, that public and transparent methods might demonstrate higher data quality and might encourage greater trust in the resulting products.  In other words, the open culture community might be able to beat the commercial world at its own game.
 
 There are some risks to this approach, of course.  The open data sources that are developed may be exploited, with closed algorithms benefitting from our advances as we gain little from studying theirs.  The mechanisms that we build may be adopted in commercial software, perhaps with modified and gamified incentives.  Collaborative work seems to be the element of our scheme most resistant to cooptation---if individuals are alienated and their data extracted in isolation, they are by definition not building a collaborative judgment.  If they are truly collaborating, then they are by definition sharing knowledge and creating openness and transparency at some scale.
 
-Finally, as with any community-building exercise, we expect that a new power base will coalesce around JADE and the people involved will have their own ideas about what to do next.  They will be at the cutting edge of a new social-technological intervention and will have the shared practice of actually doing this work.  We hope that future research will support their goals and will expand the scope of what they can accomplish.
+Finally, as with any community-building exercise, we expect that a new power base will coalesce around JADE and the people involved will have their own ideas about what to do next.  We hope that this community will shape future research, that we can support their evolving goals, and expand the scope of what they can accomplish.  These groups will be at the cutting edge of a new socio-technological intervention and will have the shared practice of actually doing this work together.
 
 \balance{}
 
