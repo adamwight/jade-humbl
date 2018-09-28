@@ -1,0 +1,164 @@
+\documentclass{sigchi-ext}
+% Please be sure that you have the dependencies (i.e., additional
+% LaTeX packages) to compile this example.
+\usepackage[T1]{fontenc}
+\usepackage{textcomp}
+\usepackage[scaled=.92]{helvet} % for proper fonts
+\usepackage{graphicx} % for EPS use the graphics package instead
+\usepackage{balance}  % for useful for balancing the last columns
+\usepackage{booktabs} % for pretty table rules
+\usepackage{ccicons}  % for Creative Commons citation icons
+\usepackage{ragged2e} % for tighter hyphenation
+
+% Some optional stuff you might like/need.
+% \usepackage{marginnote} 
+% \usepackage[shortlabels]{enumitem}
+% \usepackage{paralist}
+% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+
+%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
+% \copyrightinfo{Permission to make digital or hard copies of all or
+% part of this work for personal or classroom use is granted without
+% fee provided that copies are not made or distributed for profit or
+% commercial advantage and that copies bear this notice and the full
+% citation on the first page. Copyrights for components of this work
+% owned by others than ACM must be honored. Abstracting with credit is
+% permitted. To copy otherwise, or republish, to post on servers or to
+% redistribute to lists, requires prior specific permission and/or a
+% fee. Request permissions from permissions@acm.org.\\
+% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
+% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
+% DOI string from ACM form confirmation}
+%% EXAMPLE END
+
+% Paper metadata (use plain text, for PDF inclusion and later
+% re-using, if desired).  Use \emtpyauthor when submitting for review
+% so you remain anonymous.
+\def\plaintitle{TITLE} \def\plainauthor{Adam Wight}
+\def\emptyauthor{}
+\def\plainkeywords{Authors' choice; of terms; separated; by
+  semicolons; include commas, within terms only; required.}
+\def\plaingeneralterms{Documentation, Standardization}
+
+\title{SIGCHI Extended Abstracts Sample File: \underline{N}ote
+  \underline{I}nitial \underline{C}aps}
+
+\numberofauthors{1}
+% Notice how author names are alternately typesetted to appear ordered
+% in 2-column format; i.e., the first 4 autors on the first column and
+% the other 4 auhors on the second column. Actually, it's up to you to
+% strictly adhere to this author notation.
+\author{%
+  \alignauthor{%
+    \textbf{Adam Wight}\\
+    \affaddr{Wikimedia Foundation} \\
+    \affaddr{San Francisco, CA, USA} \\
+    \email{awight@wikimedia.org} }
+}
+
+% Make sure hyperref comes last of your loaded packages, to give it a
+% fighting chance of not being over-written, since its job is to
+% redefine many LaTeX commands.
+\definecolor{linkColor}{RGB}{6,125,233}
+\hypersetup{%
+  pdftitle={\plaintitle},
+%  pdfauthor={\plainauthor},
+  pdfauthor={\emptyauthor},
+  pdfkeywords={\plainkeywords},
+  bookmarksnumbered,
+  pdfstartview={FitH},
+  colorlinks,
+  citecolor=black,
+  filecolor=black,
+  linkcolor=black,
+  urlcolor=linkColor,
+  breaklinks=true,
+}
+
+% \reversemarginpar%
+
+\begin{document}
+
+%% For the camera ready, use the commands provided by the ACM in the Permission Release Form.
+%\CopyrightYear{2007}
+%\setcopyright{rightsretained}
+%\conferenceinfo{WOODSTOCK}{'97 El Paso, Texas USA}
+%\isbn{0-12345-67-8/90/01}
+%\doi{http://dx.doi.org/10.1145/2858036.2858119}
+%% Then override the default copyright message with the \acmcopyright command.
+%\copyrightinfo{\acmcopyright}
+
+\maketitle
+
+% Uncomment to disable hyphenation (not recommended)
+% https://twitter.com/anjirokhan/status/546046683331973120
+\RaggedRight{} 
+
+% Do not change the page size or page settings.
+\begin{abstract}
+  UPDATED---\today. This sample paper describes the formatting
+  requirements for SIGCHI Extended Abstract Format, and this sample
+  file offers recommendations on writing for the worldwide SIGCHI
+  readership. Please review this document even if you have submitted
+  to SIGCHI conferences before, as some format details have changed
+  relative to previous years. Abstracts should be about 150
+  words. Required.
+\end{abstract}
+
+\keywords{\plainkeywords}
+
+\section{Introduction}
+
+We're building a new system for Wikipedia, which expands on its capacity for collective curation.  This "judgment and dialogue engine" (JADE\footnote{\url{https://www.mediawiki.org/wiki/JADE}}) will give the existing curatorial communities tools and structure allowing them to have rich discussions, and produce machine-readable collaborative opinions that are appropriate for grounded theory research and to challenge artificial intelligences in a way that reduces the mediating effect of its system designers.
+
+In the larger context, the power dynamics of large-scale data collection and analysis are increasingly out of balance, with the key decisions being made by unaccountable, corporate entities.  The human subjects of data become little more than rats in an experiment.  Beyond the apparently valuable digital traces of our lives, we're rarely afforded any opportunites to participate explicitly in the cycle of data collection, analysis, and algorithm design.  When our feedback is solicited, it's usually in a form completely stripped of agency, mechanisms as basic as punching a happy or sad button.\cite{levaniemi2012indicator}
+
+Interestingly, this subjective feedback is an important data stream for evaluating the health of a system, but it's usually given a low priority and doesn't benefit from known good practices for collecting rich user feedback.  The reasons for this are unclear, but a safe guess is that, any resources spent engaging with complex feedback collection will be at the expense of the central, value-producing workflows.
+
+Wikipedia is an exceptional context, however, and one in which we already know that empowering users leads to a virtuous cycle of increasing quality and capacity.  Giving the users more powerful tools to collaboratively critique articles will likely bring about better articles, and will strengthen the reader-to-leader pipeline~\cite{preece2009reader} in which users grow roots in their community, moving beyond individual efforts to form tightly connected groups who work together.
+
+The central Wiki artifacts are "article" content about a subject and "talk" pages where the content is discussed.  Routine anti-vandalism work involves making judgments about edits to the wiki content, and either marking the changes as safe or "patrolled", or rolling back or "reverting" the bad edits.  Our goal is to enrich this type of activity, with new article and talk pages that contain collaborative reflection about the edits.  For example, an edit that introduces an obviously paid, promotional link which is irrelevant to an article could be marked "damaging" and "spam", and the reviewer might add a note explaining their suspicions that a large PR firm has been encouraging vandalism in this topic area.  Another reviewer could come along later and disagree, noting that the link is in fact helpful and giving their own justification.
+
+We expect this type of exchange to be generative, and for the communities to exhibit emergent properties far beyond anything we've imagined.  As the community evolves, we will try to adapt the software to better suit their needs.
+
+\section{Rich Feedback}
+
+One of the initial motivations for JADE was to allow users to make false positive reports against the "objective revision evaluation service" (ORES), a container for machine learning modes running on Wikipedia data.  This could have been done with something as basic as a "right/wrong" button.  However, there are multiple benefits when collecting richer feedback.  The feedback process itself can lead to better user understanding of and trust in our machine learning models.  Simply asking for a freeform text note along with feedback leads to higher data quality.  At the far extreme of rich feedback, the users can actually modify the model in real-time and examine the impact of their changes.\cite{amershi2014power} \cite{stumpf2009interacting}  On the machine side, we can provide rich explanations of why the algorithm made a given prediction, even breaking out the factors involved and allowing the user to annotate the factors directly.
+
+Due to time and resource constraints, we've chosen elements of rich feedback which are easier in Wikipedia such as freeform text and discussion, and are not pursuing the more programatically-heavy elements such as real-time manipulation of our models.
+
+\section{Collaborative Auditing}
+
+Another motivation for JADE is to help mitigate biases in ORES.  To illustrate our nightmare scenario, it's possible that Wikipedia editors would blindly follow ORES predictions and revert any new material that scored higher than say 50\%.  The ORES scoring would have been informed by previous editors' decisions, and the additional reverting caused by following ORES would reinforce whatever biases were present in the original training data.  The next time we gathered data and trained ORES, the editor status quo would be even more deeply encoded into our models and they would become less tolerant of material at the margins.  Already Anglo-Euro-centric norms and interests would become even more so.
+
+The promise of JADE is that editors can discuss the borderline and outlier cases, and help system designers identify the shortcomings in ORES.  Ideally, in the future it might become possible for the editors to directly iterate our machine learning models without any mediation by technicians.
+
+By making a public audit of our algorithms' output, external researchers are able to make their own analyses, something that should be a right of "data subjects" worldwide.  This is much like having an external financial audit.  Even if nothing nefarious is happening behind the scenes, demonstrating this will improve understanding and trust in the system.\cite{sandvig2014auditing}
+
+\section{Collaborative Judgments}
+
+A crucial detail of our system is that the judgments will be collaborative.  This is more than just an aggregation of individual opinions.  Some research shows that a group judgment involving discussion is likely to be more accurate, can better estimate extreme values, and has a more realistic confidence level than any other method of aggregation.\cite{sniezek1989accuracy}
+
+Heterogenous groups which disagree on their opinions seem to produce more accurate results, suggesting that our massive, public collaboration mechanism will be more successful than any controlled, small group.\cite{schulz2006group}
+
+\section{Challenging Power}
+
+The reasons to audit powerful algorithms range from the unfair effects on individuals, to the meso-level health of each algorithm and its ability to deliver on its own narrowly defined goals, to the health and survival of our society as a whole.  Many routes to auditing are tightly closed off by economic and legal forces.  For example, Sandvig points out that the U.S. Computer Fraud and Abuse Act makes some of the most effective research methods illegal, and people have actually been prosecuted and imprisoned under this law.  Companies protect the internals of their algorithms as some of their most valuable intellectual property, for example Google's much-speculated PageRank, and it's inconceivable that they will voluntarily offer any transparency.
+
+As Frederick Douglass said in 1857, "Power concedes nothing without a demand."  JADE hints at one potential weakness in the structure of the new algorithmic power, that public and transparent methods might demonstrate higher data quality and might encourage greater trust in the resulting products.  In other words, the open culture community might be able to beat the commercial world at its own game.
+
+There are some risks to this approach, of course.  The open data sources that are developed may be exploited, with closed algorithms benefitting from our advances as we gain little from studying theirs.  The mechanisms that we build may be adopted in commercial software, perhaps with modified and gamified incentives.  Collaborative work seems to be the element of our scheme most resistant to cooptation---if individuals are alienated and their data extracted in isolation, they are by definition not building a collaborative judgment.  If they are truly collaborating, then they are by definition sharing knowledge and creating openness and transparency at some scale.
+
+Finally, as with any community-building exercise, we expect that a new power base will coalesce around JADE and the people involved will have their own ideas about what to do next.  They will be at the cutting edge of a new social-technological intervention and will have the shared practice of actually doing this work.  We hope that future research will support their goals and will expand the scope of what they can accomplish.
+
+\balance{}
+
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{jade-cscw}
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:
