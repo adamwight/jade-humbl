@@ -1,9 +1,8 @@
-\documentclass{sigchi-ext}
-% Please be sure that you have the dependencies (i.e., additional
-% LaTeX packages) to compile this example.
+\documentclass[sigconf, anonymous, review]{acmart}
+
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
-\usepackage[scaled=.92]{helvet} % for proper fonts
+%\usepackage[scaled=.92]{helvet} % for proper fonts
 \usepackage{graphicx} % for EPS use the graphics package instead
 \usepackage{balance}  % for useful for balancing the last columns
 \usepackage{booktabs} % for pretty table rules
@@ -32,7 +31,7 @@ and adapt this work, provided you attribute the authors and leave this \\ copyri
 
 \title{Enriching judgment as a new dimension in Wikipedia}
 
-\numberofauthors{1}
+%\numberofauthors{1}
 % Notice how author names are alternately typesetted to appear ordered
 % in 2-column format; i.e., the first 4 autors on the first column and
 % the other 4 auhors on the second column. Actually, it's up to you to
@@ -44,6 +43,12 @@ and adapt this work, provided you attribute the authors and leave this \\ copyri
     \affaddr{San Francisco, CA, USA} \\
     \email{awight@wikimedia.org} }
 }
+
+% DOI
+\acmDOI{10.475/123_4}
+
+% ISBN
+\acmISBN{123-4567-24-567/08/06}
 
 % Make sure hyperref comes last of your loaded packages, to give it a
 % fighting chance of not being over-written, since its job is to
